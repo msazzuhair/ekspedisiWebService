@@ -24,19 +24,14 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                    <h4 class="text-dark mb-4">Let's Deliver Happiness!</h4>
+                    <h4 class="text-dark mb-4">Generate API Key</h4>
                   </div>
-                  <?= form_open('auth/login',array('class' => 'user')) ?>
-                    <div class="form-group"><?php echo form_input($identity,'','class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Enter Email Address..."');?></div>
-                    <div class="form-group"><?php echo form_input($password,'','class="form-control form-control-user" placeholder="Password"');?></div>
-                    <div class="form-group">
-                      <div class="custom-control custom-checkbox small">
-                        <div class="form-check"><?php echo form_checkbox('remember', '1', FALSE, 'id="remember"  class="form-check-input custom-control-input"');?><label class="form-check-label custom-control-label" for="remember"><?php echo lang('login_remember_label', 'remember');?></label></div>
-                      </div>
-                    </div><button class="btn btn-primary btn-block text-white btn-user" type="submit">Login</button>
+                  <?= form_open('control/generate_api',array('class' => 'user')) ?>
+                    <div class="form-group"><?php echo form_input('identifier','','class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Set Website Identifier..."');?><?= form_error('identifier','<small class="help-text text-danger">','</small>') ?></div>
+                    <button class="btn btn-primary btn-block text-white btn-user" type="submit">Generate API Key</button>
                     <hr>
                   </form>
-                  <div class="text-center"><a class="small" href="#">Forgot Password?</a></div>
+                  <div class="text-center"><a href="<?= site_url('control') ?>">Back to API List</a></div>
                   <div class="text-center"></div>
                 </div>
               </div>

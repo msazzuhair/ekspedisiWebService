@@ -64,6 +64,11 @@ class Auth extends MX_Controller
 	 */
 	public function login()
 	{
+		if ($this->ion_auth->logged_in())
+		{
+			// redirect them to the login page
+			redirect(site_url(), 'refresh');
+		}
 		$this->data['title'] = $this->lang->line('login_heading');
 
 		// validate form input
@@ -100,7 +105,7 @@ class Auth extends MX_Controller
 			$this->data['identity'] = [
 				'name' => 'identity',
 				'id' => 'identity',
-				'type' => 'text',
+				'type' => 'email',
 				'value' => $this->form_validation->set_value('identity'),
 			];
 
